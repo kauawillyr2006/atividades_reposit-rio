@@ -1,0 +1,21 @@
+# CINEVERSE com banco de dados
+
+## Arquivos
+- `cineverse_com_banco.html`: site com integração Supabase preparada e modo local de reserva.
+- `cineverse_supabase.sql`: tabelas, filmes de demonstração e políticas de segurança (RLS).
+
+## Configurar o banco online
+1. Crie um projeto em https://supabase.com/.
+2. No painel, abra SQL Editor, cole o conteúdo de `cineverse_supabase.sql` e execute.
+3. Em Authentication, habilite Anonymous Sign-Ins para permitir avaliações sem criar senha no protótipo.
+4. Em Project Settings / API (ou Connect), copie a Project URL e a chave pública `anon` / publishable.
+5. Abra `cineverse_com_banco.html` em um editor de texto e substitua:
+   - `COLE_A_URL_DO_SEU_PROJETO_AQUI` pela Project URL
+   - `COLE_A_CHAVE_ANON_PUBLICA_AQUI` pela chave pública anon/publishable
+6. Salve o HTML e abra-o no navegador com internet.
+
+## Notas
+- Nunca coloque a `service_role` key no HTML. Use apenas a chave pública anon/publishable.
+- O catálogo visual do HTML é uma lista de demonstração. A tabela `films` guarda os mesmos títulos para relacionar avaliações.
+- As avaliações online são sincronizadas com o Supabase. O acesso anônimo identifica uma sessão/navegador; limpar os dados do navegador pode criar outra identidade anônima.
+- Para publicar o site para outras pessoas, hospede o HTML em um serviço estático HTTPS (por exemplo, GitHub Pages ou Netlify).
